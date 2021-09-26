@@ -1,14 +1,17 @@
-<div class="container">
-  <div class="row">
-    <div class="shadow-lg col-sm-3 p-2">
-      <div class="card">
-        <img class="propImg" src="assets/images/oneindiangirl.jpg" alt="" />
-        <div class="card-body p-2">
-          <h3>{{ Book.name }}</h3>
-          <h4>{{ Book.type }}</h4>
-          <h4>{{ Book.price }}</h4>
-        </div>
-      </div>
-    </div>
+<div class="card">
+  <div class="card-img-wrapper">
+    <img class="card-img-top" src="assets/images/oneindiangirl.jpg" alt="" />
+    <ul class="list-inline text-center member-icons animate">
+      <li class="list-inline-item">
+        <button class="btn btn-dark">🤍</button>
+      </li>
+      <li class="list-inline-item">
+        <button class="btn btn-dark">👜</button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card-body p-2">
+    <h3>{{ book.name }}</h3>
   </div>
 </div>
