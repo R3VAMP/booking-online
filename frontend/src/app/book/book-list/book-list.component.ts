@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BookshareService } from 'src/app/services/bookshare.service';
+import { IBook } from '../IBook.interface';
 
 @Component({
   selector: 'app-book-list',
@@ -6,41 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-list.component.css'],
 })
 export class BookListComponent implements OnInit {
-  books: Array<any> = [
-    {
-      id: 1,
-      name: 'One Indian Girl',
-    },
-    {
-      id: 2,
-      name: 'Two Indian Girl',
-    },
-    {
-      id: 3,
-      name: 'Three Indian Girl',
-    },
-    {
-      id: 4,
-      name: 'Four Indian Girl',
-    },
-    {
-      id: 5,
-      name: 'Five Indian Girl',
-    },
-    {
-      id: 6,
-      name: 'Six Indian Girl',
-    },
-    {
-      id: 7,
-      name: 'Seven Indian Girl',
-    },
-    {
-      id: 8,
-      name: 'Eight Indian Girl',
-    },
-  ];
-  constructor() {}
+  books: Array<IBook>;
 
-  ngOnInit() {}
+  constructor(private bookShareService: BookshareService) {
+    this.books = [];
+  }
+
+  ngOnInit(): void {
+    this.bookShareService.getAllBooks().subscribe(
+      (data) => {
+        this.books = data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }
