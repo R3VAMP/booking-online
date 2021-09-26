@@ -8,5 +8,5 @@ import { IBook } from '../IBook.interface';
 })
 export class BookCardComponent {
   @Input()
-  book: IBook;
+  book!: IBook;
 }
