@@ -10,11 +10,17 @@ import { Observable } from 'rxjs';
 export class BookshareService {
   constructor(private http: HttpClient) {}
 
-  getAllBooks(): Observable<IBook[]> {
+  getAllBooks(SellRent: number): Observable<IBook[]> {
     return this.http.get('data/books.json').pipe(
       map((data) => {
-        const jsonData = JSON.stringify(data);
-        const booksArray: Array<IBook> = JSON.parse(jsonData);
+        const booksArray: Array<IBook> = [];
+        for (const id in data) {
+          if (data.hasOwnProperty(id) && data[id].SellRent === SellRent) {
+            booksArray.push(data[id]);
+          }
+        }
+        // const jsonData = JSON.stringify(data);
+        // const booksArray: Array<IBook> = JSON.parse(jsonData);
         return booksArray;
       })
     );

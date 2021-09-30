@@ -1,13 +1,29 @@
 <div class="card">
   <div class="card-img-wrapper">
-    <img class="card-img-top" src="assets/images/oneindiangirl.jpg" alt="" />
+    <img
+      *ngIf="book.Image"
+      class="card-img"
+      src="assets/images/{{ book.Image }}.jpg"
+      alt="Book Cover"
+    />
+    <img
+      *ngIf="!book.Image"
+      class="card-img"
+      src="assets/images/cover.jpg"
+      alt="Book Cover"
+    />
     <ul class="list-inline text-center member-icons animate">
       <li class="list-inline-item">
-        <button class="btn btn-dark">🤍</button>
+        <button class="btn btn-dark" routerLink="/book-detail/{{ book.Id }}">
+          <i class="fas fa-edit"></i>
+        </button>
       </li>
       <li class="list-inline-item">
-        <button class="btn btn-dark">👜</button>
+        <button class="btn btn-dark"><i class="fas fa-heart"></i></button>
       </li>
     </ul>
+  </div>
+  <div class="card-body p-2">
+    <h4 class="text-center">{{ book.Name }}</h4>
   </div>
 </div>
