@@ -26,7 +26,7 @@ export class BookListComponent implements OnInit {
     this.bookShareService.getAllBooks(this.SellRent).subscribe(
       (data) => {
         this.books = data;
-        console.log(data);
+        // console.log(data);
       },
       (error) => {
         console.log(error);

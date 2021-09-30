@@ -6,10 +6,11 @@
   transform: scale(1.1);
   transition-duration: 200ms;
   transition-timing-function: ease-out;
-  opacity: 0.4;
+  opacity: 0.2;
 }
 
 .card img {
+  padding: 10px;
   transform: scale(1);
   transition-duration: 200ms;
   transition-timing-function: ease-out;

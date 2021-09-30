@@ -10,6 +10,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BookshareService } from './services/bookshare.service';
 import { AddBookComponent } from './book/add-book/add-book.component';
 import { BookDetailComponent } from './book/book-detail/book-detail.component';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: '', component: BookListComponent },
@@ -28,7 +29,12 @@ const appRoutes: Routes = [
     AddBookComponent,
     BookDetailComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(appRoutes)],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes),
+  ],
   providers: [BookshareService],
   bootstrap: [AppComponent],
 })

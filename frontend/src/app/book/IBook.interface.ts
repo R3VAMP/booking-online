@@ -3,4 +3,6 @@ export interface IBook {
   Name: string;
   SellRent: number;
   Image?: string;
+  Price: number;
+  Author: string;
 }
